@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <title>Corrections - Orthographe</title>
+  <style>
+    body { margin: 0; font-family: monospace; line-height: 1.1; }
+    .container { display: flex; }
+    aside { width: 240px; background: #f3f3f3; padding: 20px; height: 100vh; position: sticky; top: 0; overflow-y: auto; border-right: 1px solid #ccc; flex-shrink: 0; }
+    aside a { display: block; margin: 12px 0; text-decoration: none; color: #0057b7; font-weight: bold; }
+    aside a .dot-orthographe { color: #c0392b; } /* Rouge pour le rond d'Orthographe */
+    aside a .dot-stats { color: #0057b7; } /* Bleu pour le rond de Statistiques */
+    main { flex-grow: 1; padding: 20px; max-width: calc(100% - 280px); }
+    details { margin-bottom: 2em; }
+    summary { font-size: 1.1em; font-weight: bold; cursor: pointer; margin-bottom: .5em; padding: 8px; background: #e8f0fe; border-radius: 4px; }
+    pre { background: #fff; padding: 10px; border-left: 4px solid #0057b7; white-space: pre-wrap; word-wrap: break-word; overflow-wrap: break-word; margin: 0; line-height: 1.1; }
+    .orthographe b { color: #c0392b; font-weight: bold; } /* Rouge pour les différences en gras */
+    .stats ul { list-style-type: disc; padding-left: 20px; margin: 10px 0; }
+    .stats li { padding: 10px; margin: 5px 0; background: #f9f9f9; border-radius: 4px; line-height: 1.2; }
+    .block { display: block; margin: 0; padding: 0; }
+    .st-header { font-weight: bold; line-height: 1.1; }
+    .content { line-height: 1.1; word-wrap: break-word; overflow-wrap: break-word; }
+    .separator { line-height: 1.1; }
+    .downloads { margin: 30px 0 10px 0; font-size: 0.95em; }
+    .downloads button { color: #0057b7; text-decoration: none; border: none; background: none; cursor: pointer; font-size: 1em; padding: 0; }
+    .downloads button:hover { text-decoration: underline; }
+    @media print { aside, summary { display: none; } details { display: block !important; } }
+  </style>
+</head>
+<body>
+<div class='container'>
+  <aside>
+    <h3>Navigation</h3>
+    <a href='#orthographe'><span class='dot-orthographe'>🔴</span> Orthographe</a>
+    <a href='#stats'><span class='dot-stats'>🔵</span> Statistiques</a>
+    <div class='downloads'>
+      <p><button onclick='imprimer()'>📄 Télécharger en PDF</button></p>
+    </div>
+  </aside>
+  <main>
+    <details id='orthographe'>
+      <summary>ORTHOGRAPHE - TYPOGRAPHIE</summary>
+      <pre class='orthographe'>
+ST 4
+Original  :	-Bonjour. Voici l'extrait d'une partie de <b>jeux</b> vidéo,
+Corrigé   :	-Bonjour. Voici l'extrait d'une partie de <b>jeu</b> vidéo,
+--------------------------------------------------
+
+ST 77
+Original  :	essentiellement grâce à la pub placée pendant leurs <b>live</b>
+Corrigé   :	essentiellement grâce à la pub placée pendant leurs <b>lives</b>
+--------------------------------------------------
+
+ST 121
+Original  :	J'ai une police de <b>caractère</b> très pixellisée
+Corrigé   :	J'ai une police de <b>caractères</b> très pixellisée
+--------------------------------------------------
+
+ST 124
+Original  :	C'est typique des <b>live</b> sur Twitch,
+Corrigé   :	C'est typique des <b>lives</b> sur Twitch,
+--------------------------------------------------
+
+ST 133
+Original  :	c'est qu'on a une interaction en direct avec les <b>gens,</b>
+Corrigé   :	c'est qu'on a une interaction en direct avec les <b>gens.</b>
+--------------------------------------------------
+
+ST 149
+Original  :	-Dans les salles <b>d&#x27;arcades,</b> dès les années 1970,
+Corrigé   :	-Dans les salles <b>d&#x27;arcade,</b> dès les années 1970,
+--------------------------------------------------
+
+ST 189
+Original  :	qui s'appelait <b>Justin</b> <b>Tv</b>
+Corrigé   :	qui s'appelait <b>Justin.tv</b>
+--------------------------------------------------
+
+ST 230
+Original  :	lors du débat <b>d&#x27;entre-deux</b> <b>tours</b> de la présidentielle.
+Corrigé   :	lors du débat <b>d&#x27;entre-deux-tours</b> de la présidentielle.
+--------------------------------------------------
+
+ST 233
+Original  :	et <b>l&#x27;hyper</b> <b>interactivité,</b>
+Corrigé   :	et <b>l&#x27;hyper-interactivité,</b>
+--------------------------------------------------
+      </pre>
+    </details>
+    <details id='stats'>
+      <summary>STATISTIQUES</summary>
+      <div class='stats'>
+        <ul>
+<li>Durée du programme : 10 min</li>
+<li>Nombre de sous-titres : 239</li>
+<li>Nombre de mots : 1 807</li>
+<li>Nombre de fautes : 9</li>
+<li>Soit 37.7 fautes pour 1 000 sous-titres et 5.0 fautes pour 1 000 mots</li>
+        </ul>
+      </div>
+    </details>
+  </main>
+</div>
+<script>
+function imprimer() {
+  document.querySelectorAll('details').forEach(d => d.setAttribute('open', ''));
+  window.print();
+}
+</script>
+</body>
+</html>
